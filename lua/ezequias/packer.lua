@@ -76,5 +76,19 @@ return require('packer').startup(function(use)
 
   use 'ThePrimeagen/vim-be-good'
 
+  use 'dense-analysis/ale'
+
+  use {
+      "mfussenegger/nvim-lint",
+      config = function()
+          require("lint").linters_by_ft = {
+              clojure = {"clj-kondo"},
+              -- ... other linters
+          }
+      end,
+  }
+  use 'tpope/vim-fireplace'
+  use 'bhurlow/vim-parinfer'
+  use 'clojure-vim/async-clj-omni'
 end)
 
